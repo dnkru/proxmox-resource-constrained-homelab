@@ -41,3 +41,9 @@ install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 # Installed Docker CE and Compose plugin
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+
+### 4. Pi-hole Deployment (Network-Wide Ad Blocking)
+Deployed Pi-hole using Docker Compose to handle network-wide DNS filtering and ad-blocking. 
+* **Security:** Utilized a `.env` file for credential management and added it to `.gitignore` to prevent secret leakage.
+* **Persistence:** Mapped local volumes (`./etc-pihole` and `./etc-dnsmasq.d`) to ensure configurations survive container restarts.
+* **Troubleshooting:** Discovered that recent Pi-hole updates deprecated the `pihole -a -p` password reset command. Resolved by reading the built-in CLI help menu and using the modern `pihole setpassword` command via `docker exec`.
