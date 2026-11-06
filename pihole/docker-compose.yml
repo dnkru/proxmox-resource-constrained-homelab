@@ -1,0 +1,24 @@
+   version: "3"
+
+   services:
+     pihole:
+       container_name: pihole
+       image: pihole/pihole:latest
+       ports:
+         # Port 53 is for DNS traffic (TCP and UDP)
+         - "53:53/tcp"
+         - "53:53/udp"
+         # Port 80 is for the Web Admin Interface
+         - "80:80/tcp"
+       environment:
+         # Pulls variables from the .env file securely
+         TZ: '${TZ}'
+         WEBPASSWORD: '${WEBPASSWORD}'
+         # Upstream DNS servers (Cloudflare and Google)
+         PIHOLE_DNS_: '1.1.1.1;8.8.8.8' 
+       volumes:
+         # Persists Pi-hole configuration across reboots
+         - './etc-pihole:/etc/pihole'
+         - './etc-dnsmasq.d:/etc/dnsmasq.d'
+       # Ensures the container restarts automatically if the LXC reboots
+       restart: unless-stopped
