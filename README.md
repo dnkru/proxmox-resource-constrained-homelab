@@ -35,11 +35,13 @@ Created a highly optimized container with the following resource limits:
 
 ### 3. Docker Installation
 Executed the official Docker installation script for Debian within the LXC console:
+```bash
 # Added Docker official GPG key and repository
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 # Installed Docker CE and Compose plugin
 apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y
+```
 
 ### 4. Pi-hole Deployment (Network-Wide Ad Blocking)
 Deployed Pi-hole using Docker Compose to handle network-wide DNS filtering and ad-blocking. 
