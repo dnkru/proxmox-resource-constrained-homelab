@@ -48,3 +48,7 @@ Deployed Pi-hole using Docker Compose to handle network-wide DNS filtering and a
 * **Security:** Utilized a `.env` file for credential management and added it to `.gitignore` to prevent secret leakage.
 * **Persistence:** Mapped local volumes (`./etc-pihole` and `./etc-dnsmasq.d`) to ensure configurations survive container restarts.
 * **Troubleshooting:** Discovered that recent Pi-hole updates deprecated the `pihole -a -p` password reset command. Resolved by reading the built-in CLI help menu and using the modern `pihole setpassword` command via `docker exec`.
+
+### 💡 Pro Tips & Troubleshooting
+* **Container Boundaries:** Attempting to run `pihole -g` directly on the Debian LXC host results in `command not found`. The correct approach is to execute the command within the container's namespace using: `docker exec -it pihole pihole -g`.
+* **Password Resets:** As noted above, always use `docker exec -it pihole pihole setpassword` for modern Pi-hole versions, and verify syntax with `--help` when commands fail.
