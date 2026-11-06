@@ -1,6 +1,7 @@
+
 # Resource-Constrained Proxmox Homelab
 
-![Architecture Diagram]("https://github.com/user-attachments/assets/f840163e-ffad-4390-88d9-c78334f31f45")
+![Architecture Diagram](<img width="671" height="563" alt="architecture-diagram-white" src="https://github.com/user-attachments/assets/e4a8eccc-7947-4c9a-a634-711a1db0c549" />)
 
 ## 📖 Overview
 This project documents the deployment of an enterprise-grade virtualization and containerization environment using legacy hardware. The primary goal was to maximize resource efficiency, demonstrating the ability to run modern IT infrastructure on highly constrained hardware (4GB RAM).
