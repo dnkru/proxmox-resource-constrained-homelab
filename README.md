@@ -35,7 +35,6 @@ Created a highly optimized container with the following resource limits:
 
 ### 3. Docker Installation
 Executed the official Docker installation script for Debian within the LXC console:
-```bash
 # Added Docker official GPG key and repository
 install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg
